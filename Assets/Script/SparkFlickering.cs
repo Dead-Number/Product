@@ -52,7 +52,7 @@ public class SparkFlickering : MonoBehaviour
     {
         if (inputDirection > 0)
         {
-            if (Mathf.Sign(rb.angularVelocity) > 0 && _isGrounded)
+            if (Mathf.Sign(rb.velocity.x) < 0 && _isGrounded)
             {
                 _light2D.enabled = true;
 
@@ -68,7 +68,7 @@ public class SparkFlickering : MonoBehaviour
 
         if (inputDirection < 0)
         {
-            if (Mathf.Sign(rb.angularVelocity) < 0 && _isGrounded) 
+            if (Mathf.Sign(rb.velocity.x) > 0 && _isGrounded) 
             {
                 _light2D.enabled = true;
 
