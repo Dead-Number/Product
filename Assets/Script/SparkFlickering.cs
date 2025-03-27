@@ -18,57 +18,68 @@ public class SparkFlickering : MonoBehaviour
 
     private float inputDirection;
     private Light2D _light2D;
+    private Tween _sparkAnim;
+
+    public float _groundCheckDistance = 0.1f;
+    public LayerMask _ground;
+    private bool _isGrounded;
 
     private void Awake()
     {
         _light2D = GetComponent<Light2D>();
+
+        _sparkAnim = DOTween.To(() => _light2D.intensity, (value) => _light2D.intensity = value, minIntensity, duration)
+                    .SetEase(easing)
+                    .SetLoops(numberLoops, _loopType);
+
+        _sparkAnim.Pause();
+
+        _light2D.enabled = false;
     }
 
     void Update()
     {
-        inputDirection = Input.GetAxisRaw("Horizontal");
+        inputDirection = Input.GetAxis("Horizontal");
+
+        Vector2 _playerPos = new Vector2(transform.position.x, transform.position.y);
+
+        _isGrounded = Physics2D.Raycast(_playerPos, Vector2.down, _groundCheckDistance, _ground);
+
+        Debug.DrawRay(_playerPos, Vector2.down * _groundCheckDistance, Color.red);
     }
 
     private void FixedUpdate()
     {
         if (inputDirection > 0)
         {
-            if (Mathf.Sign(rb.angularVelocity) < 0)
+            if (Mathf.Sign(rb.angularVelocity) > 0 && _isGrounded)
             {
-                DOTween.To(() => _light2D.intensity, (value) => _light2D.intensity = value, minIntensity, duration)
-                    .SetEase(easing)
-                    .SetLoops(numberLoops, _loopType);
-            }
+                _light2D.enabled = true;
 
-            else
-            {
+                _sparkAnim.Play();
 
+                return;
             }
         }
 
-        else
-        {
+        _sparkAnim.Pause();
 
-        }
+        _light2D.enabled = false;
 
         if (inputDirection < 0)
         {
-            if (Mathf.Sign(rb.angularVelocity) > 0)
+            if (Mathf.Sign(rb.angularVelocity) < 0 && _isGrounded) 
             {
-                DOTween.To(() => _light2D.intensity, (value) => _light2D.intensity = value, minIntensity, duration)
-                    .SetEase(easing)
-                    .SetLoops(numberLoops, _loopType);
-            }
+                _light2D.enabled = true;
 
-            else
-            {
+                _sparkAnim.Play();
 
+                return;
             }
         }
 
-        else
-        {
+        _sparkAnim.Pause();
 
-        }
+        _light2D.enabled = false;
     }
 }
