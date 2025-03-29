@@ -1,18 +1,16 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InterractObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public SpriteRenderer _spriteRdr;
+    public float _colorSwapDuration;
+
+    public void Activate()
     {
-        
+        _spriteRdr.DOColor(Color.red, _colorSwapDuration);
     }
 }
