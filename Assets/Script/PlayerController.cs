@@ -34,6 +34,19 @@ public class PlayerController : MonoBehaviour
     private void OnInterract()
     {
 
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        foreach (Collider2D collider in colliders)
+        {
+            InterractObject InterractObjectComponent = collider.GetComponent<InterractObject>();
+
+            if (InterractObjectComponent != null)
+            {
+                InterractObjectComponent.Activate();
+                return;
+            }
+        }
+
     }
     private void OnSwap()
     {

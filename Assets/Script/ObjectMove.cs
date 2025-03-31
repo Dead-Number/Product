@@ -6,20 +6,19 @@ using DG.Tweening;
 public class ObjectMove : MonoBehaviour
 {
     public float posFinal = 5.0f;
+    public float posInit = 0f;
     public float _duration = 2.0f;
     public Ease AnimType;
 
-    private void OnEnable()
+    public void DoorOpen()
     {
         transform.DOMoveY(posFinal, _duration)
             .SetEase(AnimType);
     }
 
-    private void OnDisable()
+    public void DoorClose()
     {
-        Vector2 posInit = transform.position;
-
-        transform.DOMoveY(posInit.y, _duration)
+        transform.DOMoveY(posInit, _duration)
             .SetEase(AnimType);
     }
 }
