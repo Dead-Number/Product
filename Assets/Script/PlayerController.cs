@@ -11,8 +11,16 @@ public class PlayerController : MonoBehaviour
 
     public Sprite _gearZero;
     public Sprite _gearOne;
+    public Sprite _gearTwo;
 
     private float _axis;
+
+    public SpriteRenderer _sptRdr;
+
+    private void Start()
+    {
+        _sptRdr.sprite = _gearZero;
+    }
 
     public void Update()
     {
@@ -24,11 +32,6 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _axis = value.Get<float>();
-    }
-
-    private void OnSecondary()
-    {
-
     }
 
     private void OnInterract()
@@ -50,6 +53,23 @@ public class PlayerController : MonoBehaviour
     }
     private void OnSwap()
     {
+        if (_sptRdr.sprite == _gearZero)
+        {
+            _sptRdr.sprite = _gearOne;
+            return;
+        }
 
+        if (_sptRdr.sprite == _gearOne)
+        {
+            _sptRdr.sprite = _gearTwo;
+            return;
+        }
+
+        if (_sptRdr.sprite == _gearTwo)
+        {
+            _sptRdr.sprite = _gearZero;
+            return;
+        }
     }
 }
+ 

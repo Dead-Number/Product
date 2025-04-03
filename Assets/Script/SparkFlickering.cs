@@ -17,18 +17,20 @@ public class SparkFlickering : MonoBehaviour
     public Rigidbody2D rb;
 
     private float inputDirection;
-    private Light2D _light2D;
+    public Light2D _light2D;
+    public Light2D _rightlight2D;
     private Tween _sparkAnim;
+    private Tween _rightsparkAnim;
 
     public float _groundCheckDistance = 0.1f;
     public LayerMask _ground;
     private bool _isGrounded;
 
     public ParticleSystem _particle;
+    public ParticleSystem _rightparticle;
 
     private void Awake()
     {
-        _light2D = GetComponent<Light2D>();
 
         _sparkAnim = DOTween.To(() => _light2D.intensity, (value) => _light2D.intensity = value, minIntensity, duration)
                     .SetEase(easing)
@@ -36,7 +38,16 @@ public class SparkFlickering : MonoBehaviour
 
         _sparkAnim.Pause();
 
-        _light2D.enabled = false;
+        _rightlight2D.enabled = false;
+
+
+        _rightsparkAnim = DOTween.To(() => _rightlight2D.intensity, (value) => _rightlight2D.intensity = value, minIntensity, duration)
+                    .SetEase(easing)
+                    .SetLoops(numberLoops, _loopType);
+
+        _rightsparkAnim.Pause();
+
+        _rightlight2D.enabled = false;
     }
 
     void Update()
@@ -60,13 +71,13 @@ public class SparkFlickering : MonoBehaviour
 
                 _sparkAnim.Play();
 
-                _particle.Play();
+                _particle.enableEmission = true;
 
                 return;
             }
         }
 
-        _particle.Pause();
+        _particle.enableEmission = false;
 
         _sparkAnim.Pause();
 
@@ -76,20 +87,20 @@ public class SparkFlickering : MonoBehaviour
         {
             if (Mathf.Sign(rb.velocity.x) > 0 && _isGrounded)
             {
-                _light2D.enabled = true;
+                _rightlight2D.enabled = true;
 
-                _sparkAnim.Play();
+                _rightsparkAnim.Play();
 
-                _particle.Play();
+                _rightparticle.enableEmission = true;
 
                 return;
             }
         }
 
-        _particle.Pause();
+        _rightparticle.enableEmission = false;
 
-        _sparkAnim.Pause();
+        _rightsparkAnim.Pause();
 
-        _light2D.enabled = false;
+        _rightlight2D.enabled = false;
     }
 }
