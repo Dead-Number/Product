@@ -1985,9 +1985,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 5.5
-      minScalar: 5
+      minMaxState: 3
+      scalar: 8
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7527,7 +7527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 4
   duration: 0.8
-  easing: 31
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 305127380}
@@ -7733,7 +7733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 4
   duration: 0.8
-  easing: 31
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 322122661}
@@ -7838,7 +7838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 4
   duration: 0.8
-  easing: 31
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 347311734}
@@ -9721,7 +9721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 4
   duration: 0.8
-  easing: 31
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 466151175}
@@ -13495,9 +13495,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 5.5
-      minScalar: 5
+      minMaxState: 3
+      scalar: 8
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19249,9 +19249,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 5.5
-      minScalar: 5
+      minMaxState: 3
+      scalar: 8
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -31763,7 +31763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 4
   duration: 0.8
-  easing: 31
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 1391939504}
@@ -32698,7 +32698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 4
   duration: 0.8
-  easing: 31
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 1546583373}
@@ -33349,7 +33349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 4
   duration: 0.8
-  easing: 31
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 1667014446}
@@ -41567,7 +41567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 0.5
   duration: 1
-  easing: 30
+  easing: 1
   numberLoops: -1
   _loopType: 1
   _light2D: {fileID: 0}
