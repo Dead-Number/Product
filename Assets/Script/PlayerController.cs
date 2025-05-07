@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public GameObject _effect;
     public GameObject _effect2;
 
+    public CLEARDetect CLEARDetect;
+
     private void Start()
     {
         _sptRdr.sprite = _gearZero;
@@ -110,5 +112,13 @@ public class PlayerController : MonoBehaviour
         #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
         #endif
+    }
+
+    public void OnNextLine()
+    {
+        if (CLEARDetect != null)
+        {
+            CLEARDetect.DisplayNextDialogueLine();
+        }
     }
 }

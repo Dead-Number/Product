@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.InputSystem;
 
 public class CLEARDetect : MonoBehaviour
 {
@@ -26,12 +27,15 @@ public class CLEARDetect : MonoBehaviour
     public SpriteRenderer _SR3;
 
     public GameObject player;
+    public PlayerInput PI;
 
     public void Start()
     {
         _light2D1.enabled = false;
         _light2D2.enabled = false;
         _light2D3.enabled = false;
+
+        PI.actions["NextLine"].Disable();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -46,7 +50,10 @@ public class CLEARDetect : MonoBehaviour
 
     public IEnumerator CLEAR_Screen()
     {
-        player.GetComponent<PlayerController>().enabled = false;
+        PI.actions["Move"].Disable();
+        PI.actions["Interract"].Disable();
+        PI.actions["Swap"].Disable();
+        PI.actions["Menu"].Disable();
 
         _light2D1.enabled = true;
         _SR1.enabled = false;
@@ -64,9 +71,10 @@ public class CLEARDetect : MonoBehaviour
         yield return new WaitForSeconds(_wait);
 
         DisplayNextDialogueLine();
+        PI.actions["NextLine"].Enable();
     }
 
-    private void DisplayNextDialogueLine()
+    public void DisplayNextDialogueLine()
     {
         _dialogueLineIndex++;
 
@@ -80,24 +88,15 @@ public class CLEARDetect : MonoBehaviour
         else
         {
             dialogueBox.SetActive(false);
-        }
 
-    }
+            PI.actions["NextLine"].Disable();
 
-    public void OnNextLine()
-    {
-        _dialogueLineIndex++;
+            PI.actions["Move"].Enable();
+            PI.actions["Interract"].Enable();
+            PI.actions["Swap"].Enable();
+            PI.actions["Menu"].Enable();
 
-        if (_dialogueLineIndex < dialogueAsset.dialogues.Length)
-        {
-            dialogueBox.SetActive(true);
-
-            dialogueText.text = dialogueAsset.dialogues[_dialogueLineIndex];
-        }
-
-        else
-        {
-            dialogueBox.SetActive(false);
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

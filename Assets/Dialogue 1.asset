@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue 1
   m_EditorClassIdentifier: 
   dialogues:
-  - 'C''est '
-  - Un
-  - Test
+  - What are you doing here ? Who are you ?
+  - Oh, you are the number 13. Go back to the scrapyard, i deemed you obsolete. Wait
+    there for your recycling.
+  - You don't want to ? What do you mean ? You are a mechanical part, you don't "Want".
+  - ...
+  - You really don't plan to go back. Very well, number 13.

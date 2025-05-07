@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Secondary",
-                    "type": "Button",
-                    "id": "de536f52-0b66-4192-ba7e-f707fa05cce2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Interract",
                     "type": "Button",
                     "id": "81c867c8-0aa5-4bd3-98af-02b2a8e089d0",
@@ -51,9 +42,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Next Line",
+                    "name": "NextLine",
                     "type": "Button",
-                    "id": "ae5de3c5-617f-476d-92fe-4bd7417a3af2",
+                    "id": "4c804bb9-10c9-44fa-8b2a-b947fc121231",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -151,39 +142,6 @@
                 },
                 {
                     "name": "",
-                    "id": "89e0f7e8-42ae-4b5b-8205-9a46cd114487",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Secondary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1f3c5882-a96e-4181-95e6-3acac1eb754c",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Secondary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4e316f57-8888-419f-b468-2f3af959b6c4",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Secondary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b061a1e3-6da5-42b7-b726-2a2b472421f1",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -261,23 +219,23 @@
                 },
                 {
                     "name": "",
-                    "id": "13b73706-b7a2-4fec-abe3-2b3f388e6c5b",
+                    "id": "2909910c-8eca-4fc8-8bb9-1b99efe8a5fd",
                     "path": "<Keyboard>/anyKey",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Next Line",
+                    "action": "NextLine",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "06a6073a-6624-429e-9440-029bf16d59e9",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "76f472b6-5809-4c83-8786-241d641379c7",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Next Line",
+                    "action": "NextLine",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
