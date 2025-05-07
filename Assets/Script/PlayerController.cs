@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.Rendering.DebugUI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,16 +17,24 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer _sptRdr;
 
+    public AudioSource _oldcomputerSound;
+
+    public GameObject _pausemenu;
+    public GameObject _effect;
+    public GameObject _effect2;
+
     private void Start()
     {
         _sptRdr.sprite = _gearZero;
+
+        _pausemenu.SetActive(false);
     }
 
     public void Update()
     {
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
 
-        rigidbody2D.AddTorque(-impulse * _axis);
+        rigidbody2D.AddTorque(-impulse * _axis * Time.deltaTime);
     }
 
     private void OnMove(InputValue value)
@@ -71,5 +79,36 @@ public class PlayerController : MonoBehaviour
             return;
         }
     }
+    private void OnMenu()
+    {
+        Time.timeScale = 0;
+
+        _pausemenu.SetActive(true);
+
+        _oldcomputerSound.Play(0);
+
+        _effect.SetActive(true);
+        _effect2.SetActive(false);
+    }
+
+    public void PlayGame()
+    {
+        Time.timeScale = 1;
+
+        _pausemenu.SetActive(false);
+
+        _oldcomputerSound.Pause();
+
+        _effect.SetActive(false);
+        _effect2.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+
+        #if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+        #endif
+    }
 }
- 

@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class MainMenueManadger : MonoBehaviour
@@ -27,9 +24,10 @@ public class MainMenueManadger : MonoBehaviour
     {
         Time.timeScale = 1;
 
+        _menu.SetActive(false);
+
         _oldcomputerSound.Pause();
 
-        _menu.SetActive(false);
         _effect.SetActive(false);
         _effect2.SetActive(true);
     }
