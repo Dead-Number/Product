@@ -17,6 +17,7 @@ public class InterractObject : MonoBehaviour
     public float _colorSwapDuration;
 
     public Rigidbody2D _body2D;
+    public GameObject button;
     public GameObject _player;
     public GameObject G1;
     public GameObject G2;
@@ -40,7 +41,6 @@ public class InterractObject : MonoBehaviour
             _body2D.velocity = Vector2.zero;
             _body2D.isKinematic = true;
             _player.transform.position = _interactDestination;
-            _spriteRdr.DOColor(Color.red, _colorSwapDuration);
 
             PI.actions["Move"].Disable();
             PI.actions["Interract"].Disable();
@@ -83,6 +83,10 @@ public class InterractObject : MonoBehaviour
 
         _body2D.isKinematic = false;
         _body2D.constraints = RigidbodyConstraints2D.None;
+
+        button.SetActive(false);
+
+
     }
 
 }
