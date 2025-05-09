@@ -9,19 +9,23 @@ public class CameraShake : MonoBehaviour
     public Transform CamTransform;
 
     public void Activation()
-
     {
-        CamTransform.DOShakePosition(2f, 0.25f, 40, 30f);
-
         StartCoroutine(ShakeDelay());
     }
 
     IEnumerator ShakeDelay()
-
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
-        CamTransform.DOShakePosition(0.25f, 0.75f, 40, 30f);
+        CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
     }
 
     public void ActivationTwo()
@@ -34,5 +38,21 @@ public class CameraShake : MonoBehaviour
         yield return new WaitForSeconds(3.3f);
 
         CamTransform.DOShakePosition(0.25f, 0.5f, 40, 30f);
+    }
+
+    public void ActivationThree()
+
+    {
+        CamTransform.DOShakePosition(2f, 0.25f, 40, 30f);
+
+        StartCoroutine(ShakeDelayThree());
+    }
+
+    IEnumerator ShakeDelayThree()
+
+    {
+        yield return new WaitForSeconds(2);
+
+        CamTransform.DOShakePosition(0.25f, 0.75f, 40, 30f);
     }
 }
