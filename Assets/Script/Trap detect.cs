@@ -7,8 +7,8 @@ using UnityEngine;
 public class Trapdetect : MonoBehaviour
 {
 
-    public float posFinal = -7.1f;
-    public float _duration = 0.5f;
+    public float posFinal;
+    public float _duration;
 
     public Ease AnimType;
     public LoopType LoopType;

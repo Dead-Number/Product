@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering.Universal;
+using TMPro;
+using UnityEngine.InputSystem;
+using System.Security.Cryptography;
 
 public class ScreenFlickering : MonoBehaviour
 {
@@ -12,14 +15,36 @@ public class ScreenFlickering : MonoBehaviour
     public int numberLoops = -1;
     public LoopType _loopType = LoopType.Yoyo;
 
-    public Light2D _light2D;
     public AnimationCurve curve;
+    public Light2D light2D;
+    public SpriteRenderer SR;
 
-    private void Start()
+    public LayerMask _layer;
+
+    public float radius = 2.0f;
+    public float _wait = 1.5f;
+
+    public GameObject player;
+
+    public void Start()
     {
+        light2D.enabled = false;
+    }
 
-        DOTween.To(() => _light2D.intensity, (value) => _light2D.intensity = value, minIntensity, duration)
-            .SetEase(curve)
-            .SetLoops(numberLoops, _loopType);
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent<PlayerController>(out _))
+        {
+
+            light2D.enabled = true;
+            SR.enabled = false;
+
+            DOTween.To(() => light2D.intensity, (value) => light2D.intensity = value, minIntensity, duration)
+                .SetEase(curve)
+                .SetLoops(numberLoops, _loopType);
+
+            return;
+        }
     }
 }
+

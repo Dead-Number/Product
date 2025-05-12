@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class InterractObject : MonoBehaviour
 {
@@ -31,6 +32,12 @@ public class InterractObject : MonoBehaviour
 
     public float _wait = 1.5f;
     public float _wait2 = 2.5f;
+
+    public Light2D light2D;
+    public SpriteRenderer SR;
+
+    public Collider2D collider2D1;
+
     public void Activate()
     {
         isActive = !isActive;
@@ -86,6 +93,10 @@ public class InterractObject : MonoBehaviour
 
         button.SetActive(false);
 
+        light2D.enabled = false;
+        SR.enabled = true;
+
+        collider2D1.enabled = false;
 
     }
 

@@ -25,6 +25,7 @@ public class SparkFlickering : MonoBehaviour
     public float _groundCheckDistance = 0.1f;
     public LayerMask _ground;
     private bool _isGrounded;
+    private bool _wasGrounded;
 
     public ParticleSystem _particle;
     public ParticleSystem _rightparticle;
@@ -38,7 +39,7 @@ public class SparkFlickering : MonoBehaviour
 
         _sparkAnim.Pause();
 
-        _rightlight2D.enabled = false;
+        _light2D.enabled = false;
 
 
         _rightsparkAnim = DOTween.To(() => _rightlight2D.intensity, (value) => _rightlight2D.intensity = value, minIntensity, duration)
@@ -55,6 +56,8 @@ public class SparkFlickering : MonoBehaviour
         inputDirection = Input.GetAxis("Horizontal");
 
         Vector2 _playerPos = new Vector2(transform.position.x, transform.position.y);
+
+        _wasGrounded = _isGrounded;
 
         _isGrounded = Physics2D.Raycast(_playerPos, Vector2.down, _groundCheckDistance, _ground);
 
@@ -102,5 +105,28 @@ public class SparkFlickering : MonoBehaviour
         _rightsparkAnim.Pause();
 
         _rightlight2D.enabled = false;
+
+        if (!_wasGrounded && _isGrounded)
+        {
+            _light2D.enabled = true;
+            _rightlight2D.enabled = true;
+
+            _sparkAnim.Play();
+            _rightsparkAnim.Play();
+
+            _particle.enableEmission = true;
+            _rightparticle.enableEmission = true;
+
+            return;
+        }
+
+        _rightparticle.enableEmission = false;
+         _particle.enableEmission = false;
+
+        _rightsparkAnim.Pause();
+        _sparkAnim.Pause();
+
+        _rightlight2D.enabled = false;
+        _light2D.enabled = false;
     }
 }

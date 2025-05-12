@@ -23,6 +23,9 @@ public class ClimbScript : MonoBehaviour
 
     public Vector2 interactDestination;
 
+    public float delay;
+    public float delay1;
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (sptRdr.sprite = Gear)
@@ -54,7 +57,7 @@ public class ClimbScript : MonoBehaviour
 
     public IEnumerator ClimbDelay()
     {
-        yield return new WaitForSeconds(4.4f);
+        yield return new WaitForSeconds(delay);
 
         player.transform.DOMoveX(destination1, moveSpeed1)
             .SetEase(Ease.Linear)
@@ -64,7 +67,7 @@ public class ClimbScript : MonoBehaviour
                     .SetEase(Ease.Linear)
                     .SetRelative();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delay1);
 
         PI.actions["Move"].Enable();
         PI.actions["Interract"].Enable();
