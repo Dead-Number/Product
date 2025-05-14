@@ -15,7 +15,6 @@ public class InterractObject : MonoBehaviour
     private bool isActive;
 
     public SpriteRenderer _spriteRdr;
-    public float _colorSwapDuration;
 
     public Rigidbody2D _body2D;
     public GameObject button;
@@ -32,6 +31,7 @@ public class InterractObject : MonoBehaviour
 
     public float _wait = 1.5f;
     public float _wait2 = 2.5f;
+    public float _wait3 = 2.5f;
 
     public Light2D light2D;
     public SpriteRenderer SR;
@@ -83,10 +83,7 @@ public class InterractObject : MonoBehaviour
 
         onActivate?.Invoke();
 
-        PI.actions["Move"].Enable();
-        PI.actions["Interract"].Enable();
-        PI.actions["Swap"].Enable();
-        PI.actions["Menu"].Enable();
+        yield return new WaitForSeconds(_wait3);
 
         _body2D.isKinematic = false;
         _body2D.constraints = RigidbodyConstraints2D.None;
@@ -98,6 +95,10 @@ public class InterractObject : MonoBehaviour
 
         collider2D1.enabled = false;
 
-    }
+        PI.actions["Move"].Enable();
+        PI.actions["Interract"].Enable();
+        PI.actions["Swap"].Enable();
+        PI.actions["Menu"].Enable();
 
+    }
 }

@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject _effect2;
 
     public CLEARDetect CLEARDetect;
+    public CLEARDetect2 CLEARDetect2;
 
     private void Start()
     {
@@ -52,10 +53,17 @@ public class PlayerController : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             InterractObject InterractObjectComponent = collider.GetComponent<InterractObject>();
+            InteractObjectNoScreen InteractObjectNoScreenComponent = collider.GetComponent<InteractObjectNoScreen>();
 
             if (InterractObjectComponent != null)
             {
                 InterractObjectComponent.Activate();
+                return;
+            }
+
+            else if (InteractObjectNoScreenComponent != null)
+            {
+                InteractObjectNoScreenComponent.Activate(); 
                 return;
             }
         }
@@ -111,14 +119,19 @@ public class PlayerController : MonoBehaviour
 
         #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
-        #endif
+#endif
     }
 
     public void OnNextLine()
     {
-        if (CLEARDetect != null)
+        if (CLEARDetect != null && CLEARDetect.isActiveAndEnabled)
         {
             CLEARDetect.DisplayNextDialogueLine();
+        }
+
+        if (CLEARDetect2 != null && CLEARDetect2.isActiveAndEnabled)
+        {
+            CLEARDetect2.DisplayNextDialogueLine2();
         }
     }
 }

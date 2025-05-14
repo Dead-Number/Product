@@ -108,6 +108,9 @@ public class SparkFlickering : MonoBehaviour
 
         if (!_wasGrounded && _isGrounded)
         {
+
+            Debug.Log("SPARK");
+
             _light2D.enabled = true;
             _rightlight2D.enabled = true;
 
@@ -128,5 +131,12 @@ public class SparkFlickering : MonoBehaviour
 
         _rightlight2D.enabled = false;
         _light2D.enabled = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Vector2 _playerPos = new Vector2(transform.position.x, transform.position.y);
+        Gizmos.DrawLine(_playerPos, _playerPos + Vector2.down * _groundCheckDistance);
     }
 }

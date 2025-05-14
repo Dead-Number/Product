@@ -51,13 +51,13 @@ public class CLEARDetect2 : MonoBehaviour
     {
         if (other.TryGetComponent<PlayerController>(out _))
         {
-            StartCoroutine(CLEAR_Screen());
+            StartCoroutine(CLEAR_Screen2());
 
             return;
         }
     }
 
-    public IEnumerator CLEAR_Screen()
+    public IEnumerator CLEAR_Screen2()
     {
         PI.actions["Move"].Disable();
         PI.actions["Interract"].Disable();

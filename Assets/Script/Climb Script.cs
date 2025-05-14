@@ -28,7 +28,7 @@ public class ClimbScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (sptRdr.sprite = Gear)
+        if (sptRdr.sprite == Gear)
         {
             if (other.TryGetComponent<PlayerController>(out _))
             {
