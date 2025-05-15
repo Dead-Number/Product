@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class CLEARDetect : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class CLEARDetect : MonoBehaviour
 
     public GameObject player;
     public PlayerInput PI;
+
+    public bool BoolCLEAR;
 
     public void Start()
     {
@@ -97,6 +100,8 @@ public class CLEARDetect : MonoBehaviour
             PI.actions["Menu"].Enable();
 
             GetComponent<BoxCollider2D>().enabled = false;
+
+            BoolCLEAR = true;
         }
     }
 }

@@ -35,6 +35,8 @@ public class CLEARDetect2 : MonoBehaviour
     public GameObject player;
     public PlayerInput PI;
 
+    public bool CLEAR2Start;
+
     public void Start()
     {
         light2D1.enabled = false;
@@ -91,6 +93,8 @@ public class CLEARDetect2 : MonoBehaviour
 
         light2D6.enabled = true;
         SR6.enabled = false;
+
+        CLEAR2Start = true;
 
         DisplayNextDialogueLine2();
         PI.actions["NextLine"].Enable();

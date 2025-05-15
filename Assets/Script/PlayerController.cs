@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
             CLEARDetect.DisplayNextDialogueLine();
         }
 
-        if (CLEARDetect2 != null && CLEARDetect2.isActiveAndEnabled)
+        if (CLEARDetect2 != null && CLEARDetect2.isActiveAndEnabled && CLEARDetect.BoolCLEAR == true && CLEARDetect2.CLEAR2Start == true)
         {
             CLEARDetect2.DisplayNextDialogueLine2();
         }
