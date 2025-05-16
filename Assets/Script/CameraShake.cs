@@ -15,15 +15,15 @@ public class CameraShake : MonoBehaviour
 
     IEnumerator ShakeDelay()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
 
         CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
     }
@@ -35,7 +35,7 @@ public class CameraShake : MonoBehaviour
 
     IEnumerator ShakeDelayTwo()
     {
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(7f);
 
         CamTransform.DOShakePosition(0.25f, 0.5f, 40, 30f);
     }

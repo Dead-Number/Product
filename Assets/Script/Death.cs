@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+    public SpriteRenderer sptRdr;
+    public Sprite Gear;
+
     public GameObject _player;
     public GameObject _deathmenu;
 
@@ -25,6 +28,7 @@ public class Death : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            sptRdr.sprite = Gear;
 
             other.transform.position = _deathDestination;
             _rb2D.velocity = Vector2.zero;

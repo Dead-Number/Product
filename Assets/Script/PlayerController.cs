@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
     public Sprite _gearZero;
     public Sprite _gearOne;
-    public Sprite _gearTwo;
 
     private float _axis;
 
@@ -78,12 +77,6 @@ public class PlayerController : MonoBehaviour
         }
 
         if (_sptRdr.sprite == _gearOne)
-        {
-            _sptRdr.sprite = _gearTwo;
-            return;
-        }
-
-        if (_sptRdr.sprite == _gearTwo)
         {
             _sptRdr.sprite = _gearZero;
             return;

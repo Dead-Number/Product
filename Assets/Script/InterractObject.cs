@@ -35,32 +35,38 @@ public class InterractObject : MonoBehaviour
 
     public Light2D light2D;
     public SpriteRenderer SR;
+    public SpriteRenderer sptRdr;
+    public Sprite Gear;
 
     public Collider2D collider2D1;
 
     public void Activate()
     {
-        isActive = !isActive;
-
-        if (isActive)
+        if (sptRdr.sprite == Gear)
         {
-            _body2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-            _body2D.velocity = Vector2.zero;
-            _body2D.isKinematic = true;
-            _player.transform.position = _interactDestination;
+            isActive = !isActive;
 
-            PI.actions["Move"].Disable();
-            PI.actions["Interract"].Disable();
-            PI.actions["Swap"].Disable();
-            PI.actions["Menu"].Disable();
+            if (isActive)
+            {
+                _body2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                _body2D.velocity = Vector2.zero;
+                _body2D.isKinematic = true;
+                _player.transform.position = _interactDestination;
 
-            StartCoroutine(GateAnimation());
+                PI.actions["Move"].Disable();
+                PI.actions["Interract"].Disable();
+                PI.actions["Swap"].Disable();
+                PI.actions["Menu"].Disable();
+
+                StartCoroutine(GateAnimation());
+            }
+
+            else
+            {
+
+            }
         }
-
-        else
-        {
-
-        }
+           
     }
 
     public IEnumerator GateAnimation()

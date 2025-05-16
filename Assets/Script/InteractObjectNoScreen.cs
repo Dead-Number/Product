@@ -14,8 +14,6 @@ public class InteractObjectNoScreen : MonoBehaviour
 
     private bool isActive;
 
-    public SpriteRenderer _spriteRdr;
-
     public Rigidbody2D _body2D;
     public GameObject button;
     public GameObject _player;
@@ -33,36 +31,40 @@ public class InteractObjectNoScreen : MonoBehaviour
     public float _wait2 = 2.5f;
     public float _wait3 = 2.5f;
 
+    public SpriteRenderer sptRdr;
+    public Sprite Gear;
+
     public Collider2D collider2D1;
 
     public void Activate()
     {
-        isActive = !isActive;
-
-        Debug.Log("Yo");
-
-        if (isActive)
+        if (sptRdr.sprite == Gear)
         {
 
-            Debug.Log("lo");
+            isActive = !isActive;
 
-            _body2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-            _body2D.velocity = Vector2.zero;
-            _body2D.isKinematic = true;
-            _player.transform.position = _interactDestination;
+            if (isActive)
+            {
 
-            PI.actions["Move"].Disable();
-            PI.actions["Interract"].Disable();
-            PI.actions["Swap"].Disable();
-            PI.actions["Menu"].Disable();
+                _body2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                _body2D.velocity = Vector2.zero;
+                _body2D.isKinematic = true;
+                _player.transform.position = _interactDestination;
 
-            StartCoroutine(GateAnimation());
+                PI.actions["Move"].Disable();
+                PI.actions["Interract"].Disable();
+                PI.actions["Swap"].Disable();
+                PI.actions["Menu"].Disable();
+
+                StartCoroutine(GateAnimation());
+            }
+
+            else
+            {
+
+            }
         }
 
-        else
-        {
-
-        }
     }
 
     public IEnumerator GateAnimation()
