@@ -10,7 +10,6 @@ public class InterractObject : MonoBehaviour
 {
 
     public UnityEvent onActivate;
-    public UnityEvent onDeactivate;
 
     private bool isActive;
 

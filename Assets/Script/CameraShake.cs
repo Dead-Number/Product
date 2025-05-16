@@ -15,6 +15,7 @@ public class CameraShake : MonoBehaviour
 
     IEnumerator ShakeDelay()
     {
+
         yield return new WaitForSeconds(1.5f);
 
         CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
@@ -26,6 +27,8 @@ public class CameraShake : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         CamTransform.DOShakePosition(0.25f, 0.50f, 40, 30f);
+
+        Debug.Log("C'est cool");
     }
 
     public void ActivationTwo()
