@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer _sptRdr;
 
-    public AudioSource _oldcomputerSound;
+    public AudioSource oldcomputerSound;
+    public AudioSource machineSound;
 
     public GameObject _pausemenu;
     public GameObject _effect;
@@ -88,7 +89,8 @@ public class PlayerController : MonoBehaviour
 
         _pausemenu.SetActive(true);
 
-        _oldcomputerSound.Play(0);
+        oldcomputerSound.Play(0);
+        machineSound.Pause();
 
         _effect.SetActive(true);
         _effect2.SetActive(false);
@@ -100,7 +102,8 @@ public class PlayerController : MonoBehaviour
 
         _pausemenu.SetActive(false);
 
-        _oldcomputerSound.Pause();
+        oldcomputerSound.Pause();
+        machineSound.Play(1);
 
         _effect.SetActive(false);
         _effect2.SetActive(true);
@@ -117,14 +120,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnNextLine()
     {
-        if (CLEARDetect != null && CLEARDetect.isActiveAndEnabled)
-        {
-            CLEARDetect.DisplayNextDialogueLine();
-        }
-
         if (CLEARDetect2 != null && CLEARDetect2.isActiveAndEnabled && CLEARDetect.BoolCLEAR == true && CLEARDetect2.CLEAR2Start == true)
         {
             CLEARDetect2.DisplayNextDialogueLine2();
+        }
+        else if (CLEARDetect != null && CLEARDetect.isActiveAndEnabled)
+        {
+            CLEARDetect.DisplayNextDialogueLine();
         }
     }
 }

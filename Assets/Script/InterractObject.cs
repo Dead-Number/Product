@@ -39,6 +39,9 @@ public class InterractObject : MonoBehaviour
 
     public Collider2D collider2D1;
 
+    public AudioSource clingclang_1;
+    public AudioSource clingclang_2;
+
     public void Activate()
     {
         if (sptRdr.sprite == Gear)
@@ -84,7 +87,13 @@ public class InterractObject : MonoBehaviour
             .SetRelative()
             .SetEase(_AnimType);
 
+        clingclang_1.Play();
+        clingclang_2.Play();
+
         yield return new WaitForSeconds(_wait2);
+
+        clingclang_1.Pause();
+        clingclang_2.Pause();
 
         onActivate?.Invoke();
 

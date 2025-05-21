@@ -14,7 +14,8 @@ public class Death : MonoBehaviour
     public GameObject _effect;
     public GameObject _effect2;
 
-    public AudioSource _oldcomputerSound;
+    public AudioSource oldcomputerSound;
+    public AudioSource machineSound;
 
     public Rigidbody2D _rb2D;
     public Vector2 _deathDestination;
@@ -37,7 +38,8 @@ public class Death : MonoBehaviour
 
             _deathmenu.SetActive(true);
 
-            _oldcomputerSound.Play(0);
+            oldcomputerSound.Play();
+            machineSound.Pause();
 
             _effect.SetActive(true);
             _effect2.SetActive(false);
@@ -50,7 +52,8 @@ public class Death : MonoBehaviour
 
         _deathmenu.SetActive(false);
 
-        _oldcomputerSound.Pause();
+        oldcomputerSound.Pause();
+        machineSound.Play();
 
         _effect.SetActive(false);
         _effect2.SetActive(true);

@@ -95,7 +95,6 @@ public class CLEARDetect2 : MonoBehaviour
         SR6.enabled = false;
 
         CLEAR2Start = true;
-
         DisplayNextDialogueLine2();
         PI.actions["NextLine"].Enable();
     }
