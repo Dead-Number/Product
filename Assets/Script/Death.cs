@@ -39,7 +39,6 @@ public class Death : MonoBehaviour
             _deathmenu.SetActive(true);
 
             oldcomputerSound.Play();
-            machineSound.Pause();
 
             _effect.SetActive(true);
             _effect2.SetActive(false);
