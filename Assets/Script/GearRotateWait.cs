@@ -10,6 +10,8 @@ public class GearRotateWait : MonoBehaviour
     public Vector3 _rotation;
     public Ease _AnimType;
 
+    public AudioSource audioSource;
+
     public void Activation()
     {
         StartCoroutine(WaitGear());
@@ -22,5 +24,7 @@ public class GearRotateWait : MonoBehaviour
         transform.DORotate(_rotation, _duration)
             .SetRelative()
             .SetEase(_AnimType);
+
+        audioSource.Play();
     }
 }

@@ -50,6 +50,7 @@ public class InterractObject : MonoBehaviour
 
             if (isActive)
             {
+
                 _body2D.constraints = RigidbodyConstraints2D.FreezeRotation;
                 _body2D.velocity = Vector2.zero;
                 _body2D.isKinematic = true;
@@ -68,7 +69,7 @@ public class InterractObject : MonoBehaviour
 
             }
         }
-           
+
     }
 
     public IEnumerator GateAnimation()
@@ -92,8 +93,8 @@ public class InterractObject : MonoBehaviour
 
         yield return new WaitForSeconds(_wait2);
 
-        clingclang_1.Pause();
-        clingclang_2.Pause();
+        clingclang_1.Stop();
+        clingclang_2.Stop();
 
         onActivate?.Invoke();
 

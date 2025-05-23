@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class CLEARDetect2 : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class CLEARDetect2 : MonoBehaviour
     public GameObject player;
     public PlayerInput PI;
 
+    public AudioSource music;
+
     public bool CLEAR2Start;
 
     public void Start()
@@ -65,6 +68,8 @@ public class CLEARDetect2 : MonoBehaviour
         PI.actions["Interract"].Disable();
         PI.actions["Swap"].Disable();
         PI.actions["Menu"].Disable();
+
+        music.DOFade(0f, 3f);
 
         light2D1.enabled = true;
         SR1.enabled = false;
@@ -120,6 +125,8 @@ public class CLEARDetect2 : MonoBehaviour
             PI.actions["Interract"].Enable();
             PI.actions["Swap"].Enable();
             PI.actions["Menu"].Enable();
+
+            music.DOFade(1f, 3f);
 
             GetComponent<BoxCollider2D>().enabled = false;
         }

@@ -7,6 +7,7 @@ using UnityEngine;
 public class MainMenueManadger : MonoBehaviour
 {
     public AudioSource oldcomputerSound;
+    public AudioSource music;
 
     public GameObject _menu;
     public GameObject _effect;
@@ -27,6 +28,7 @@ public class MainMenueManadger : MonoBehaviour
         _menu.SetActive(false);
 
         oldcomputerSound.Pause();
+        music.Play();
 
         _effect.SetActive(false);
         _effect2.SetActive(true);

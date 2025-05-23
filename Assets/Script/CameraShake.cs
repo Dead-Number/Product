@@ -67,9 +67,15 @@ public class CameraShake : MonoBehaviour
 
         CamTransform.DOShakePosition(0.25f, 0.5f, 40, 30f);
 
+        clank_4.Play();
+
         yield return new WaitForSeconds(0.25f);
 
         GetComponent<CameraFollow>().enabled = true;
+
+        yield return new WaitForSeconds(0.75f);
+
+        clank_4.Pause();
     }
 
     public void ActivationThree()
@@ -90,7 +96,7 @@ public class CameraShake : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         screech.Pause();
-        clank_1.Play();
+        clank_5.Play();
 
         CamTransform.DOShakePosition(0.25f, 0.75f, 40, 30f);
 
@@ -100,7 +106,7 @@ public class CameraShake : MonoBehaviour
 
         yield return new WaitForSeconds(0.75f);
 
-        clank_1.Pause();
+        clank_5.Pause();
     }
 
     public void ActivationFour()
@@ -116,8 +122,14 @@ public class CameraShake : MonoBehaviour
 
         CamTransform.DOShakePosition(0.25f, 0.5f, 40, 30f);
 
+        clank_6.Play();
+
         yield return new WaitForSeconds(0.25f);
 
         GetComponent<CameraFollow>().enabled = true;
+
+        yield return new WaitForSeconds(0.75f);
+
+        clank_6.Pause();
     }
 }

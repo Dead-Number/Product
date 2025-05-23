@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource oldcomputerSound;
     public AudioSource machineSound;
+    public AudioSource music;
 
     public GameObject _pausemenu;
     public GameObject _effect;
@@ -89,7 +90,8 @@ public class PlayerController : MonoBehaviour
 
         _pausemenu.SetActive(true);
 
-        oldcomputerSound.Play(0);
+        oldcomputerSound.Play();
+        music.Pause();
         machineSound.Pause();
 
         _effect.SetActive(true);
@@ -103,7 +105,8 @@ public class PlayerController : MonoBehaviour
         _pausemenu.SetActive(false);
 
         oldcomputerSound.Pause();
-        machineSound.Play(1);
+        machineSound.Play();
+        music.Play();
 
         _effect.SetActive(false);
         _effect2.SetActive(true);
